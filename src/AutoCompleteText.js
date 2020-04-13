@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./AutoCompleteText.css";
 import debounce from "./debounce";
 
 export default class AutoCompletedText extends Component {
@@ -104,7 +104,11 @@ export default class AutoCompletedText extends Component {
                 className={`${active === index ? "suggestion-active" : ""}`}
                 onClick={() => this.selectedText(item)}
               >
-                {item}
+                <div className="text-result">
+                  <div>{item.split(text)[0]}</div>
+                  <div className="match-highlight">{text}</div>
+                  <div>{item.split(text)[1]}</div>
+                </div>
               </li>
             ))}
           </ul>
